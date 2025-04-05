@@ -112,9 +112,16 @@ public class HonestHeadlines {
      * @return "Fake!" if the headline contains any sensational words, "Real!" otherwise.
      */
     public String classifyHeadline(String input) {
-        
-        return "";
+    String lowercaseInput = input.toLowerCase();
+    
+    for (String word : sensationalWords) {
+        if (lowercaseInput.contains(word)) {
+            return "Fake!";
+        }
     }
+    
+    return "Real!";
+}
 
     /**
      * Creates an ArrayList of sensational words or phrases often used in fake headlines.
